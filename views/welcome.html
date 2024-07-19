@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      transition: background 0.3s;
+    }
+
+    .navbar.scrolled {
+      background: rgba(0, 0, 0, 1);
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      animation: logo-animation 2s infinite;
+    }
+
+    @keyframes logo-animation {
+      0%, 100% { color: #FFD700; }
+      50% { color: #FF4500; }
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+    }
+
+    .nav-links li {
+      margin: 0 1rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #FFD700;
+      transform: scale(1.1);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+    }
+
+    .section {
+      padding: 4rem;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.5);
+      margin: 2rem auto;
+      border-radius: 10px;
+      max-width: 80%;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.5s, box-shadow 0.5s;
+    }
+
+    .section:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .section h1, .section h2 {
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      animation: text-animation 3s infinite;
+    }
+
+    .section p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
+
+    @keyframes text-animation {
+      0%, 100% { color: white; }
+      50% { color: #FFD700; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-links li {
+        margin: 1rem 0;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .navbar.active .nav-links {
+        display: flex;
+      }
+    }
+
+    /* Adding some more interactive elements */
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      margin-top: 2rem;
+      background-color: #FF4500;
+      color: white;
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .cta-button:hover {
+      background-color: #FFD700;
+      transform: scale(1.1);
+    }
+
+    .animated-background {
+      background: linear-gradient(-45deg, #ffafbd, #ffc3a0, #ffafbd, #ffc3a0);
+      background-size: 400% 400%;
+      animation: gradient-animation 15s ease infinite;
+    }
+
+    @keyframes gradient-animation {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+  </style>
+</head>
+<body class="animated-background">
+  <header>
+    <nav class="navbar">
+      <div class="logo">MyWebsite</div>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/welcome">Welcome</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section id="about" class="section">
+      <h1>WELCOME</h1>
+      <p>We solved the following problem statement:</p>
+      <p>
+        Create an interactive navigation menu that changes color or style when scrolled or when hovering over a menu item. The navigation menu should have a fixed position and be visible on all pages. Use HTML to structure the menu, CSS to style it, and JavaScript to add interactivity, such as changing the background color or font color of the menu when it is scrolled or when a menu item is hovered over.
+      </p>
+      <h2>Features of Our Webpage</h2>
+      <ul>
+        <ul>Interactive Navigation Menu</ul>
+        <br>
+        <ul>Menu Style Changes on Scroll</ul>
+        <br>
+        <ul>Hover Effects on Menu Items</ul>
+        <br>
+        <ul>Sticky Navigation Menu</ul>
+        <br>
+        <ul>Vibrant and Animated Background</ul>
+        <br>
+        <ul>Responsive Design</ul>
+        <br>
+        <ul>Call-to-Action Buttons with Hover Effects</ul>
+        <br>
+      </ul>
+      <button class="cta-button">Explore More</button>
+    </section>
+  </main>
+  <script>
+    document.querySelector('.hamburger').addEventListener('click', () => {
+      document.querySelector('.navbar').classList.toggle('active');
+    });
+
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
